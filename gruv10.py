@@ -138,4 +138,3 @@ if __name__ == '__main__':
     learning_rate = 0.1
     optimizer = torch.optim.SGD(grumodel.parameters(), lr=learning_rate)
     train(grumodel, criterion, optimizer, train_loader, seq_len, epoch_num, in_size, test_loader)
-
