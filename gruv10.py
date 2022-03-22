@@ -109,15 +109,15 @@ def test(_grumodel, _test_loader, _seq_len, _in_size):
             labels = labels.cuda()
         else:
             images = images.view(-1, _seq_len, _in_size)
+        with torch.no_grad():
+            outs = _grumodel(images)
+            _, predicted = torch.max(outs.data, 1)
+            total += labels.size(0)
 
-        outs = _grumodel(images)
-        _, predicted = torch.max(outs.data, 1)
-        total += labels.size(0)
-
-        if torch.cuda.is_available():
-            correct += (predicted.cuda() == labels.cuda()).sum()
-        else:
-            correct += (predicted == labels).sum()
+            if torch.cuda.is_available():
+                correct += (predicted.cuda() == labels.cuda()).sum()
+            else:
+                correct += (predicted == labels).sum()
     accuracy = 100 * correct / total
     print(f'Accuracy: {round(float(accuracy), 6)}'.ljust(20))
 

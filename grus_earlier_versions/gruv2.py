@@ -209,7 +209,7 @@ if __name__ == '__main__':
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
 
-    path = './data'  # 存放数据的位置
+    path = '../data'  # 存放数据的位置
     batch_size = 200
     train_loader, test_loader = prepare_data(batch_size, path)
     n_iters = 6000

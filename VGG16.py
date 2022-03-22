@@ -144,6 +144,6 @@ if __name__ == '__main__':
     torchsummary.summary(model, input_size=(1, 56, 56))
     # print(next(model.parameters()).is_cuda)
     criterion = nn.CrossEntropyLoss()
-    learning_rate = 0.1
+    learning_rate = 0.01
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
     train(model, criterion, optimizer, train_loader, epoch_num, test_loader)

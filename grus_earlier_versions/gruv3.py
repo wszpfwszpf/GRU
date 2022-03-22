@@ -197,7 +197,7 @@ def test(test_loader, iter_num, loss):
 
 if __name__ == '__main__':
     batch_size = 200
-    path = './data'
+    path = '../data'
     train_loader, test_loader = prepare_data(batch_size, path)
 
     # 指定输入，隐藏和输出尺寸，layer_size指的是中间有几个隐层，这里取一个。seq_len
