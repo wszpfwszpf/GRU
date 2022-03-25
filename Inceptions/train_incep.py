@@ -6,7 +6,6 @@ import torch
 # import torch.nn as nn
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
-import torchsummary
 import matplotlib.pyplot as plt
 from tqdm import trange, tqdm
 import torchvision
@@ -14,7 +13,7 @@ import time
 import copy
 import numpy as np
 # import os
-from InceptionV1 import InceptionV1, InceptionNet
+from Inceptions.InceptionV1 import InceptionV1
 from torch.utils.data import DataLoader
 
 
