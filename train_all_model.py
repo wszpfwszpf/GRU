@@ -16,6 +16,7 @@ from torchsummary import torchsummary
 from Inceptions.InceptionV1 import InceptionV1
 from torch.utils.data import DataLoader
 from Densenets.Denset_efficient import DenseNet
+from DPN.dpn import dpn92
 
 def prepare_data(_batch_size, path='data/cifar10-data'):
     # trans = transforms.Compose([transforms.Resize((224, 224)),
@@ -207,10 +208,11 @@ if __name__ == '__main__':
     weight_decay = 0.0005
     num_epochs = 40
     # model = InceptionV1(num_classes=10)
-    model = DenseNet()
+    # model = DenseNet()
+    model = dpn92(10)
     # model = InceptionNet(num_classes=10)
     model.to(device)
-    torchsummary.summary(model, input_size=(3, 32, 32))
+    # torchsummary.summary(model, input_size=(3, 32, 32))
     optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
     criterion = torch.nn.CrossEntropyLoss()
     dataloaders_dict = prepare_data(_batch_size=batch_size)
